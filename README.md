@@ -1,15 +1,13 @@
 # osmpbf
-[![Build Status](https://travis-ci.org/qedus/osmpbf.svg?branch=master)](https://travis-ci.org/qedus/osmpbf)
-[![Coverage Status](https://coveralls.io/repos/github/qedus/osmpbf/badge.svg?branch=master)](https://coveralls.io/github/qedus/osmpbf?branch=master)
-[![Go Report Card](https://goreportcard.com/badge/github.com/qedus/osmpbf)](https://goreportcard.com/report/github.com/qedus/osmpbf)
-[![GoDoc](https://godoc.org/github.com/qedus/osmpbf?status.svg)](https://godoc.org/github.com/qedus/osmpbf)
+[![Go Report Card](https://goreportcard.com/badge/github.com/HellButcher/osmpbf)](https://goreportcard.com/report/github.com/HellButcher/osmpbf)
+[![GoDoc](https://godoc.org/github.com/HellButcher/osmpbf?status.svg)](https://godoc.org/github.com/HellButcher/osmpbf)
 
 Package osmpbf is used to decode OpenStreetMap pbf files.
 
 ## Installation
 
 ```bash
-$ go get github.com/qedus/osmpbf
+$ go get github.com/HellButcher/osmpbf
 ```
 
 ## Usage
@@ -62,7 +60,7 @@ Usage is similar to `json.Decoder`.
 
 ## Documentation
 
-http://godoc.org/github.com/qedus/osmpbf
+http://godoc.org/github.com/HellButcher/osmpbf
 
 ## To Do
 
