@@ -3,13 +3,13 @@ package osmpbf
 import (
 	"time"
 
-	"github.com/golang/protobuf/proto"
 	"github.com/HellButcher/osmpbf/OSMPBF"
+	"github.com/golang/protobuf/proto"
 )
 
 // Decoder for Blob with OSMData (PrimitiveBlock)
 type dataDecoder struct {
-	q []interface{}
+	q       []interface{}
 	Options DecoderOptions
 }
 

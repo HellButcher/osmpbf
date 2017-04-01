@@ -13,8 +13,8 @@ import (
 	"io"
 	"time"
 
-	"github.com/golang/protobuf/proto"
 	"github.com/HellButcher/osmpbf/OSMPBF"
+	"github.com/golang/protobuf/proto"
 )
 
 const (
@@ -85,8 +85,8 @@ type pair struct {
 
 // Options for controlling the decoder
 type DecoderOptions struct {
-	SkipNodes bool
-	SkipWays bool
+	SkipNodes     bool
+	SkipWays      bool
 	SkipRelations bool
 }
 
