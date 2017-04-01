@@ -10,6 +10,7 @@ import (
 // Decoder for Blob with OSMData (PrimitiveBlock)
 type dataDecoder struct {
 	q []interface{}
+	Options DecoderOptions
 }
 
 func (dec *dataDecoder) Decode(blob *OSMPBF.Blob) ([]interface{}, error) {
@@ -36,10 +37,16 @@ func (dec *dataDecoder) parsePrimitiveBlock(pb *OSMPBF.PrimitiveBlock) {
 }
 
 func (dec *dataDecoder) parsePrimitiveGroup(pb *OSMPBF.PrimitiveBlock, pg *OSMPBF.PrimitiveGroup) {
-	dec.parseNodes(pb, pg.GetNodes())
-	dec.parseDenseNodes(pb, pg.GetDense())
-	dec.parseWays(pb, pg.GetWays())
-	dec.parseRelations(pb, pg.GetRelations())
+	if !dec.Options.SkipNodes {
+		dec.parseNodes(pb, pg.GetNodes())
+		dec.parseDenseNodes(pb, pg.GetDense())
+	}
+	if !dec.Options.SkipWays {
+		dec.parseWays(pb, pg.GetWays())
+	}
+	if !dec.Options.SkipRelations {
+		dec.parseRelations(pb, pg.GetRelations())
+	}
 }
 
 func (dec *dataDecoder) parseNodes(pb *OSMPBF.PrimitiveBlock, nodes []*OSMPBF.Node) {

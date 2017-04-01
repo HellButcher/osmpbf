@@ -83,6 +83,13 @@ type pair struct {
 	e error
 }
 
+// Options for controlling the decoder
+type DecoderOptions struct {
+	SkipNodes bool
+	SkipWays bool
+	SkipRelations bool
+}
+
 // A Decoder reads and decodes OpenStreetMap PBF data from an input stream.
 type Decoder struct {
 	r          io.Reader
@@ -93,6 +100,8 @@ type Decoder struct {
 	// for data decoders
 	inputs  []chan<- pair
 	outputs []<-chan pair
+
+	Options DecoderOptions
 }
 
 // NewDecoder returns a new decoder that reads from r.
@@ -137,6 +146,7 @@ func (dec *Decoder) Start(n int) error {
 		output := make(chan pair)
 		go func() {
 			dd := new(dataDecoder)
+			dd.Options = dec.Options
 			for p := range input {
 				if p.e == nil {
 					// send decoded objects or decoding error
